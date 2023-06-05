@@ -1,4 +1,13 @@
 body {
     text-align: center;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: rgb(199, 199, 199);
+}
+
+#section {
+    background-color: rgb(230, 170, 68);
+    border-radius: 20px;
+    margin: 5% 20%;
+    padding: 5% 25% 30% 25%;
+    color: white;
 }

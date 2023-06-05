@@ -1,28 +1,11 @@
-const apiKey = 'f467f4a9-3c0d-4d50-9113-b37965e81302';
-const url = `https://pro-api.coinmarketcap.com/v1/exchange/map`;
+const price = document.querySelector('#btc')
 
-fetch(url, {
-    mode: 'no-cors',
-
-    headers: {
-        'X-CMC_PRO_API_KEY': apiKey
-    },
-
+async function logJsonData() {
+    const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
+    const jsonData = await response.json();
+    console.log(jsonData['bpi']['USD']['rate']);
+    price.innerHTML = '$ ' + jsonData['bpi']['USD']['rate']
+}
 
 
-})
-    .then(response => {
-        if (response.ok) {
-            return response.json(); // Parse response data as JSON
-        } else {
-            throw new Error('Error: ' + response.status);
-        }
-    })
-    .then(data => {
-        console.log(data); // Process the response data
-        // Perform further operations with the data
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error
-    });
+logJsonData();
